@@ -4,9 +4,11 @@ import com.springboot.web.app.springbootweb.Models.Usuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -32,9 +34,16 @@ public class IndexController {
 
     @RequestMapping("/listar")
     public String listar(Model model){
-        List<Usuario> usuarios = new ArrayList<>();
         model.addAttribute("titulo", "Listado de usuarios");
-        model.addAttribute("usuarios", usuarios);
         return "listar";
+    }
+    @ModelAttribute("usuarios")
+    public List<Usuario> listarUsuarios(){
+        List<Usuario> usuarios = Arrays.asList(new Usuario("Andres","Guzman","andres@"),
+                new Usuario("Bryan","Salgado","Bryan@"),
+                new Usuario("Anderson","Romero","Ander@"),
+                new Usuario("Jesus","Trujillo","Ander@")
+        );
+        return usuarios;
     }
 }
