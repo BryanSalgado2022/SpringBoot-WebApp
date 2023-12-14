@@ -38,6 +38,7 @@ public class IndexController {
         return "listar";
     }
     @ModelAttribute("usuarios")
+    //Se trata de una etiqueta la cual pone a disposición el elemento a todos los metodos handler
     public List<Usuario> listarUsuarios(){
         List<Usuario> usuarios = Arrays.asList(new Usuario("Andres","Guzman","andres@"),
                 new Usuario("Bryan","Salgado","Bryan@"),
